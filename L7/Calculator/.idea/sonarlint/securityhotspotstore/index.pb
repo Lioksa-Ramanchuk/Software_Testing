@@ -7,3 +7,29 @@ o
 Calculator.iml,a\d\adaefcb9bd6f5052d7b343000083c69a312d8d0a
 s
 Csrc/test/java/by/belstu/it/ramanchuk/calculator/CalculatorTest.java,8\9\89711592abff4c05bd149ff733a38ae2e02f9ce1
+Å
+Q.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,2\c\2cabb939da04d3de3a200bf2b575690e1a16316d
+w
+G.idea/sonarlint/issuestore/8/9/89711592abff4c05bd149ff733a38ae2e02f9ce1,1\9\19675ad2e3721f74bd1c767c978f070dd61b1dae
+Å
+Q.idea/sonarlint/securityhotspotstore/6/c/6c7f61a7c59bf85bd5048c1a2ceb77fba4a7613b,d\4\d4e9faae0452b1e0ecbd637c0ccb50622ee687b0
+P
+ .idea/libraries/jacoco_agent.xml,2\d\2d415ce160c55710dbaad88603144500c42ba295
+O
+.idea/libraries/jacoco_core.xml,f\4\f4777ca2e1c5c7f16f792ea27d2a4ae9423a636b
+w
+G.idea/sonarlint/issuestore/6/c/6c7f61a7c59bf85bd5048c1a2ceb77fba4a7613b,7\6\7638fd0ac7bf53f834cd3ff496ad8b5ef2058d89
+Q
+!.idea/libraries/jacoco_report.xml,1\c\1c14631611ed3fec3e8fc89767f4234515a129f4
+w
+G.idea/sonarlint/issuestore/a/d/adaefcb9bd6f5052d7b343000083c69a312d8d0a,9\9\994393e8c482836e432ef2940ec830bef830ee6c
+Å
+Q.idea/sonarlint/securityhotspotstore/8/9/89711592abff4c05bd149ff733a38ae2e02f9ce1,1\3\13737da1fec92fbf5ee2a02ff31aa3bc8ccbcb8b
+w
+G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8\6\863e0292fd7e9b3e74dafd6cc01f73ba76346482
+Å
+Q.idea/sonarlint/securityhotspotstore/a/d/adaefcb9bd6f5052d7b343000083c69a312d8d0a,a\c\ac704495f0c586056eaa887ab1e4f6df6b35341b
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
