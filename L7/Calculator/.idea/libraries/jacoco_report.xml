@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="jacoco.report" type="repository">
+    <properties maven-id="org.jacoco:org.jacoco.report:0.8.11" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jacoco/org.jacoco.report/0.8.11/org.jacoco.report-0.8.11.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jacoco/org.jacoco.core/0.8.11/org.jacoco.core-0.8.11.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm/9.6/asm-9.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm-commons/9.6/asm-commons-9.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm-tree/9.6/asm-tree-9.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

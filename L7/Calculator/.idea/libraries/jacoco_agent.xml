@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jacoco.agent" type="repository">
+    <properties maven-id="org.jacoco:org.jacoco.agent:0.8.11" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jacoco/org.jacoco.agent/0.8.11/org.jacoco.agent-0.8.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
