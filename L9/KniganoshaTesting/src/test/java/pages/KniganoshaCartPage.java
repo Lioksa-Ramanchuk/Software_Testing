@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,10 +12,10 @@ import java.util.List;
 public class KniganoshaCartPage extends AbstractPage{
         public static final String CART_PAGE_URL = "https://kniganosha.by/basket";
 
-        @FindBy(xpath = "//div[@class='del btn redH'][1]")
+        @FindBy(css = ".basketItem > .del")
         private WebElement removeFirstItemFromCartButton;
 
-        @FindBy(xpath = "//div[@class='basketItem']")
+        @FindBy(css = ".basketItem")
         private List<WebElement> cartItems;
 
         public KniganoshaCartPage(WebDriver driver) {
