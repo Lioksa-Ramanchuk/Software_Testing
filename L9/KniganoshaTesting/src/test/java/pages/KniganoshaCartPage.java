@@ -28,6 +28,8 @@ public class KniganoshaCartPage extends AbstractPage{
         }
 
         public KniganoshaCartPage removeFirstItemFromCart() {
+                new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
+                        .until(ExpectedConditions.elementToBeClickable(removeFirstItemFromCartButton));
                 removeFirstItemFromCartButton.click();
                 return this;
         }
