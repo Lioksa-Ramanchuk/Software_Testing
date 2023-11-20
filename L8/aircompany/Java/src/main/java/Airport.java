@@ -90,19 +90,12 @@ public class Airport {
         return this;
     }
 
-    public Airport sortByMaxLoadCapacity() {
+    public void sortByMaxLoadCapacity() {
         planes.sort(Comparator.comparingInt(Plane::getMinLoadCapacity));
-        return this;
     }
 
     public List<? extends Plane> getPlanes() {
         return planes;
-    }
-
-    private void print(Collection<? extends Plane> collection) {
-        for (Plane plane : collection) {
-            System.out.println(plane);
-        }
     }
 
     @Override
