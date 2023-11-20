@@ -11,7 +11,7 @@ import java.util.List;
 public class KniganoshaCartPage extends AbstractPage{
         public static final String CART_PAGE_URL = "https://kniganosha.by/basket";
 
-        @FindBy(xpath = "/html/body/main/div[2]/div/div[2]/div[1]/div/div[4]")
+        @FindBy(xpath = "//div[@class='del btn redH'][1]")
         private WebElement removeFirstItemFromCartButton;
 
         @FindBy(xpath = "//div[@class='basketItem']")
