@@ -4,7 +4,6 @@ import driver.DriverSingleton;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
@@ -55,7 +54,7 @@ public class TestListener implements ITestListener {
         }
     }
 
-    private @NotNull String getCurrentTimeAsString() {
+    private String getCurrentTimeAsString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return ZonedDateTime.now().format(formatter);
     }
