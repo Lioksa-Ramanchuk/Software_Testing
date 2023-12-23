@@ -1,9 +1,12 @@
 package pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,6 +14,7 @@ import java.util.List;
 
 public class KniganoshaCartPage extends AbstractPage{
         public static final String CART_PAGE_URL = "https://kniganosha.by/basket";
+        private final Logger logger = LogManager.getRootLogger();
 
         @FindBy(css = ".basketItem > .del")
         private WebElement removeFirstItemFromCartButton;
@@ -21,6 +25,7 @@ public class KniganoshaCartPage extends AbstractPage{
 
         public KniganoshaCartPage(WebDriver driver) {
                 super(driver);
+                PageFactory.initElements(this.driver, this);
         }
 
         @Override
@@ -32,6 +37,7 @@ public class KniganoshaCartPage extends AbstractPage{
                 new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
                         .until(ExpectedConditions.elementToBeClickable(removeFirstItemFromCartButton));
                 removeFirstItemFromCartButton.click();
+                logger.info("Removed 1st item from cart.");
                 return this;
         }
 

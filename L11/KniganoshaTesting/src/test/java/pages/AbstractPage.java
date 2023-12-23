@@ -11,11 +11,10 @@ public abstract class AbstractPage {
     protected WebDriver driver;
 
     protected abstract AbstractPage openPage();
-    protected final Duration WAIT_TIMEOUT_DURATION = Duration.ofSeconds(20);
+    protected final long WAIT_TIMEOUT_DURATION = 30;
 
     protected AbstractPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this);
     }
 
     protected AbstractPage openPage(String url) {

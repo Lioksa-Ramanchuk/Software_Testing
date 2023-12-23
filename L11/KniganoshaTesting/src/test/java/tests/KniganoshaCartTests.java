@@ -6,7 +6,7 @@ import pages.KniganoshaCartPage;
 import pages.KniganoshaCatalogPage;
 
 
-public class WebDriverKniganoshaCartTests extends CommonConditions {
+public class KniganoshaCartTests extends CommonConditions {
     @Test(description = "Test #6: removing item from cart by 'x' button click")
     public void givenItemAddedToCart_whenRemoveButtonClicked_thenItemRemovedFromCart() {
         new KniganoshaCatalogPage(driver)

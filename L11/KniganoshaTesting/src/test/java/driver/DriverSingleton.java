@@ -10,18 +10,14 @@ public class DriverSingleton {
 
     private DriverSingleton(){}
 
-    public static WebDriver getDriver(BrowserType browserType) {
-        if (null == driver) {
-            switch (browserType) {
-                case FIREFOX -> {
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                }
-                case CHROME -> {
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                }
-                default -> throw new RuntimeException("Unknown browser: " + browserType);
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            if ("chrome".equals(System.getProperty("browser"))) {
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+            } else {
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
             }
             driver.manage().window().maximize();
         }
@@ -29,8 +25,10 @@ public class DriverSingleton {
     }
 
     public static void closeDriver() {
-        driver.quit();
-        driver = null;
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
     }
 }
 
