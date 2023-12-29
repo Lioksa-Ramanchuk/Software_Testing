@@ -49,6 +49,14 @@ public class KniganoshaCartPage extends AbstractPage{
                 logger.info("Set 1st item count to "+newCount+".");
                 return this;
         }
+        public KniganoshaCartPage setFirstItemCountTo(String newCountStr) {
+                new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
+                        .until(ExpectedConditions.visibilityOf(firstItemCountInput));
+                firstItemCountInput.clear();
+                firstItemCountInput.sendKeys(newCountStr);
+                logger.info("Set 1st item count to \""+newCountStr+"\".");
+                return this;
+        }
         public KniganoshaCartPage incrementFirstItemCount() {
                 new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
                         .until(ExpectedConditions.elementToBeClickable(incrementFirstItemCountButton))

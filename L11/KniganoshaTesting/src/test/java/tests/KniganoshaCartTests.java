@@ -50,9 +50,21 @@ public class KniganoshaCartTests extends CommonConditions {
         new KniganoshaCatalogPage(driver)
                 .openPage()
                 .addFirstAvailableItemToCart();
-        double firstCartItemCount = new KniganoshaCartPage(driver)
+        long firstCartItemCount = new KniganoshaCartPage(driver)
                 .openPage()
                 .setFirstItemCountTo(999999999999999L)
+                .getFirstItemCount();
+
+        Assert.assertEquals(firstCartItemCount, 1L, "Cart item count wasn't reset to 1.");
+    }
+    @Test(description = "Test #8: checking text input unavailability in cart item count input field")
+    public void givenItemAddedToCart_whenTextInputtedIntoItemCount_thenItemCountIsResetTo1() {
+        new KniganoshaCatalogPage(driver)
+                .openPage()
+                .addFirstAvailableItemToCart();
+        long firstCartItemCount = new KniganoshaCartPage(driver)
+                .openPage()
+                .setFirstItemCountTo("A")
                 .getFirstItemCount();
 
         Assert.assertEquals(firstCartItemCount, 1L, "Cart item count wasn't reset to 1.");
