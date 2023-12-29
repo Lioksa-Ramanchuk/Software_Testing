@@ -7,7 +7,7 @@ import service.TestDataReader;
 
 
 public class KniganoshaCatalogTests extends CommonConditions {
-    public static final String TEST_DATA_T3_GENRE = "testdata.t3_genre";
+    public static final String TEST_DATA_T3_GENRE = "test_data.t3_genre";
 
     @Test(description = "Test #1: filter by discount")
     public void givenCatalogOpened_whenOnlyWithDiscountClicked_thenFilterCatalogByDiscount() {
@@ -27,8 +27,7 @@ public class KniganoshaCatalogTests extends CommonConditions {
 
     @Test(description = "Test #3: filter by genre")
     public void givenCatalogOpened_whenGenreIsSelected_thenFilterCatalogByGenre() {
-        System.out.println(System.getProperty("java.class.path"));
-        var genre = TestDataReader.getTestData(TEST_DATA_T3_GENRE);
+        final String genre = "slouniki";    // TestDataReader doesn't work on Jenkins :(
         var catalogPage = new KniganoshaCatalogPage(driver)
                 .openPage()
                 .filterByGenre(genre);
