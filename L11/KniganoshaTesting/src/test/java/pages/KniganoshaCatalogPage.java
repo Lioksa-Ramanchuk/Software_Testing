@@ -16,14 +16,20 @@ public class KniganoshaCatalogPage extends AbstractPage {
         @FindBy(css = ".addBasket:first-of-type")
         private WebElement firstAddItemToCartButton;
 
-        @FindBy(css = "#stockCheck")
+        @FindBy(css = "#stockCheck")    // No mistype here :/
         private WebElement onlyWithDiscountCheckbox;
+
+        @FindBy(css = "#not_a")
+        private WebElement onlyInStockCheckbox;
 
         @FindBy(css = ".panel-tovar span.old")
         private List<WebElement> oldPrices;
 
         @FindBy(css = ".panel-tovar")
         private List<WebElement> items;
+
+        @FindBy(css = "span.none")
+        private List<WebElement> notInStock;
 
         public KniganoshaCatalogPage(WebDriver driver) {
                 super(driver);
@@ -48,6 +54,13 @@ public class KniganoshaCatalogPage extends AbstractPage {
                 }
                 return this;
         }
+        public KniganoshaCatalogPage filterByAvailability() {
+                // WebDriverWait doesn't work on onlyInStockCheckbox here :( But the element works correctly :)
+                if (!onlyInStockCheckbox.isSelected()) {
+                        onlyInStockCheckbox.click();
+                }
+                return this;
+        }
 
         public int getItemsCount() {
                 return items.size();
@@ -55,5 +68,9 @@ public class KniganoshaCatalogPage extends AbstractPage {
 
         public int getOldPricesCount() {
                 return oldPrices.size();
+        }
+
+        public int getNotInStockCount() {
+                return notInStock.size();
         }
 }

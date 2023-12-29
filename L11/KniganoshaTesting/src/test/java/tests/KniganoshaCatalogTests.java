@@ -15,4 +15,12 @@ public class KniganoshaCatalogTests extends CommonConditions {
                 .fiterByDiscount();
         Assert.assertEquals(catalogPage.getItemsCount(), catalogPage.getOldPricesCount(), "Not all items have old prices.");
     }
+
+    @Test(description = "Test #2: filter by availability")
+    public void givenCatalogOpened_whenOnlyInStockClicked_thenFilterCatalogByAvailability() {
+        var catalogPage = new KniganoshaCatalogPage(driver)
+                .openPage()
+                .filterByAvailability();
+        Assert.assertEquals(catalogPage.getNotInStockCount(), 0, "Not all items are available.");
+    }
 }
