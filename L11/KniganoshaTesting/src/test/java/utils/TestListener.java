@@ -25,7 +25,7 @@ public class TestListener implements ITestListener {
     }
 
     @Override public void onTestFailure(ITestResult result) {
-        //saveScreenshot();
+        saveScreenshot();
     }
 
     @Override public void onTestSkipped(ITestResult result) {
@@ -40,22 +40,22 @@ public class TestListener implements ITestListener {
     @Override public void onFinish(ITestContext context) {
     }
 
-//    private void saveScreenshot() {
-//        File screenCapture = ((TakesScreenshot) DriverSingleton
-//                .getDriver())
-//                .getScreenshotAs(OutputType.FILE);
-//        try {
-//            FileUtils.copyFile(screenCapture, new File(
-//                    ".//target/screenshots/" +
-//                            getCurrentTimeAsString() +
-//                            ".png"));
-//        } catch (IOException e) {
-//            log.error("Failed to save screenshot: " + e.getLocalizedMessage());
-//        }
-//    }
-//
-//    private String getCurrentTimeAsString() {
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
-//        return ZonedDateTime.now().format(formatter);
-//    }
+    private void saveScreenshot() {
+        File screenCapture = ((TakesScreenshot) DriverSingleton
+                .getDriver())
+                .getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(screenCapture, new File(
+                    ".//target/screenshots/" +
+                            getCurrentTimeAsString() +
+                            ".png"));
+        } catch (IOException e) {
+            log.error("Failed to save screenshot: " + e.getLocalizedMessage());
+        }
+    }
+
+    private String getCurrentTimeAsString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
+        return ZonedDateTime.now().format(formatter);
+    }
 }
