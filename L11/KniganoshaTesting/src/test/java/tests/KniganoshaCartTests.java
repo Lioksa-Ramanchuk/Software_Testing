@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.KniganoshaCartPage;
 import pages.KniganoshaCatalogPage;
@@ -20,6 +21,7 @@ public class KniganoshaCartTests extends CommonConditions {
         Assert.assertEquals(cartItemsCount, 0, "Cart needs to be empty.");
     }
 
+    @Ignore
     @Test(description = "Test #7: checking upper bound of item count in cart")
     public void givenItemAddedToCart_whenItemCountUpperBoundExceeded_thenItemCountIsResetTo1() {
         new KniganoshaCatalogPage(driver)

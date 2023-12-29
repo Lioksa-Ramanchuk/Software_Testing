@@ -1,2 +1,8 @@
 2023-12-23 08:23:08,250 ERROR  [main] Failed to save screenshot: .\target\screenshots\2023-12-23 08:23:08.png (Синтаксическая ошибка в имени файла, имени папки или метке тома)
 2023-12-23 09:25:59,101 ERROR  [main] Failed to save screenshot: Синтаксическая ошибка в имени файла, имени папки или метке тома
+2023-12-23 09:33:57,793 INFO  [main] Removed 1st item from cart.
+2023-12-23 09:42:40,097 INFO  [main] Removed 1st item from cart.
+2023-12-23 09:43:33,836 ERROR  [main] Failed to save screenshot: Синтаксическая ошибка в имени файла, имени папки или метке тома
+2023-12-23 09:47:36,432 ERROR  [main] Failed to save screenshot: Синтаксическая ошибка в имени файла, имени папки или метке тома
+2023-12-23 09:48:52,492 ERROR  [main] Failed to save screenshot: Синтаксическая ошибка в имени файла, имени папки или метке тома
+2023-12-23 09:59:39,086 ERROR  [main] Failed to save screenshot: Синтаксическая ошибка в имени файла, имени папки или метке тома

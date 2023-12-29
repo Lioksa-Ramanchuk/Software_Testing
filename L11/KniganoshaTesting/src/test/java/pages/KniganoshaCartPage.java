@@ -25,7 +25,6 @@ public class KniganoshaCartPage extends AbstractPage{
 
         public KniganoshaCartPage(WebDriver driver) {
                 super(driver);
-                PageFactory.initElements(this.driver, this);
         }
 
         @Override
