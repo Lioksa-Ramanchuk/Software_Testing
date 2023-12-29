@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,19 +14,16 @@ public class KniganoshaCatalogPage extends AbstractPage {
 
         @FindBy(css = ".addBasket:first-of-type")
         private WebElement firstAddItemToCartButton;
-
         @FindBy(css = "#stockCheck")    // No mistype here :/
         private WebElement onlyWithDiscountCheckbox;
-
         @FindBy(css = "#not_a")
         private WebElement onlyInStockCheckbox;
-
+        @FindBy(css = "#genresBtn")
+        private WebElement genresButton;
         @FindBy(css = ".panel-tovar span.old")
         private List<WebElement> oldPrices;
-
         @FindBy(css = ".panel-tovar")
         private List<WebElement> items;
-
         @FindBy(css = "span.none")
         private List<WebElement> notInStock;
 
@@ -47,7 +43,7 @@ public class KniganoshaCatalogPage extends AbstractPage {
                 return this;
         }
 
-        public KniganoshaCatalogPage fiterByDiscount() {
+        public KniganoshaCatalogPage filterByDiscount() {
                 // WebDriverWait doesn't work on onlyWithDiscountCheckbox here :( But the element works correctly :)
                 if (!onlyWithDiscountCheckbox.isSelected()) {
                         onlyWithDiscountCheckbox.click();
@@ -61,16 +57,26 @@ public class KniganoshaCatalogPage extends AbstractPage {
                 }
                 return this;
         }
+        public KniganoshaCatalogPage filterByGenre(String genre) {
+                new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
+                        .until(ExpectedConditions.elementToBeClickable(genresButton))
+                        .click();
+                new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
+                        .until(ExpectedConditions.elementToBeClickable(By.id(genre)))
+                        .click();
+                return this;
+        }
 
         public int getItemsCount() {
                 return items.size();
         }
-
         public int getOldPricesCount() {
                 return oldPrices.size();
         }
-
         public int getNotInStockCount() {
                 return notInStock.size();
+        }
+        public int getItemsByGenreCount(String genre) {
+                return driver.findElements(By.cssSelector("a[href^=\"/catalog/"+genre+"/\"]")).size();
         }
 }

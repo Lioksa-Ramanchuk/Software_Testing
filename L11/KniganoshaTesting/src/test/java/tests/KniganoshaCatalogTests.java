@@ -1,18 +1,19 @@
 package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
-import pages.KniganoshaCartPage;
 import pages.KniganoshaCatalogPage;
+import service.TestDataReader;
 
 
 public class KniganoshaCatalogTests extends CommonConditions {
+    public static final String TEST_DATA_T3_GENRE = "testdata.t3_genre";
+
     @Test(description = "Test #1: filter by discount")
     public void givenCatalogOpened_whenOnlyWithDiscountClicked_thenFilterCatalogByDiscount() {
         var catalogPage = new KniganoshaCatalogPage(driver)
                 .openPage()
-                .fiterByDiscount();
+                .filterByDiscount();
         Assert.assertEquals(catalogPage.getItemsCount(), catalogPage.getOldPricesCount(), "Not all items have old prices.");
     }
 
@@ -22,5 +23,15 @@ public class KniganoshaCatalogTests extends CommonConditions {
                 .openPage()
                 .filterByAvailability();
         Assert.assertEquals(catalogPage.getNotInStockCount(), 0, "Not all items are available.");
+    }
+
+    @Test(description = "Test #3: filter by genre")
+    public void givenCatalogOpened_whenGenreIsSelected_thenFilterCatalogByGenre() {
+        System.out.println(System.getProperty("java.class.path"));
+        var genre = TestDataReader.getTestData(TEST_DATA_T3_GENRE);
+        var catalogPage = new KniganoshaCatalogPage(driver)
+                .openPage()
+                .filterByGenre(genre);
+        Assert.assertEquals(catalogPage.getItemsCount(), catalogPage.getItemsByGenreCount(genre), "Not all items are of genre \""+genre+"\".");
     }
 }

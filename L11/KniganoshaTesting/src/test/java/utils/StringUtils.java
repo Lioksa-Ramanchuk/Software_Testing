@@ -17,4 +17,8 @@ public class StringUtils {
     public static String generateRandomRepositoryNameWithPostfixLength(int postfixLength) {
         return "testRepo_".concat(getRandomString(postfixLength));
     }
+
+    public static String coalesce(String one, String two) {
+        return one != null ? one : two;
+    }
 }
