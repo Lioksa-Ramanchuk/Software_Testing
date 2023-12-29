@@ -40,14 +40,15 @@ public class KniganoshaCatalogPage extends AbstractPage {
                 new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
                         .until(ExpectedConditions.elementToBeClickable(firstAddItemToCartButton));
                 firstAddItemToCartButton.click();
+                logger.info("Added 1st available item to cart.");
                 return this;
         }
-
         public KniganoshaCatalogPage filterByDiscount() {
                 // WebDriverWait doesn't work on onlyWithDiscountCheckbox here :( But the element works correctly :)
                 if (!onlyWithDiscountCheckbox.isSelected()) {
                         onlyWithDiscountCheckbox.click();
                 }
+                logger.info("Filtered catalog by discount.");
                 return this;
         }
         public KniganoshaCatalogPage filterByAvailability() {
@@ -55,6 +56,7 @@ public class KniganoshaCatalogPage extends AbstractPage {
                 if (!onlyInStockCheckbox.isSelected()) {
                         onlyInStockCheckbox.click();
                 }
+                logger.info("Filtered catalog by availability.");
                 return this;
         }
         public KniganoshaCatalogPage filterByGenre(String genre) {
@@ -64,6 +66,7 @@ public class KniganoshaCatalogPage extends AbstractPage {
                 new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
                         .until(ExpectedConditions.elementToBeClickable(By.id(genre)))
                         .click();
+                logger.info("Filtered catalog by genre.");
                 return this;
         }
 

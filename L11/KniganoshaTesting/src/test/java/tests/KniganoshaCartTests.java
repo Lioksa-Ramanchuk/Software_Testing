@@ -7,6 +7,19 @@ import pages.KniganoshaCatalogPage;
 
 
 public class KniganoshaCartTests extends CommonConditions {
+    @Test(description = "Test #4: cart cost updates on item count change")
+    public void givenItemAddedToCart_whenItemCountIncremented_thenCartCostChanges() {
+        new KniganoshaCatalogPage(driver)
+                .openPage()
+                .addFirstAvailableItemToCart();
+        var cartPage = new KniganoshaCartPage(driver)
+                .openPage();
+        var cartCostBefore = cartPage.getCartCost();
+        cartPage.incrementFirstItemCount();
+        var cartCostAfter = cartPage.getCartCost();
+
+        Assert.assertNotEquals(cartCostBefore, cartCostAfter, "Cart cost didn't change.");
+    }
     @Test(description = "Test #6: removing item from cart by 'x' button click")
     public void givenItemAddedToCart_whenRemoveButtonClicked_thenItemRemovedFromCart() {
         new KniganoshaCatalogPage(driver)
