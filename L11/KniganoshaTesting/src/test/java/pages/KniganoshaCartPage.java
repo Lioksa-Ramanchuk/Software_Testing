@@ -11,10 +11,12 @@ import java.util.List;
 public class KniganoshaCartPage extends AbstractPage{
         public static final String CART_PAGE_URL = "https://kniganosha.by/basket";
 
-        @FindBy(xpath = "/html/body/main/div[2]/div/div[2]/div[1]/div[1]/div[3]/button[1]")
+        @FindBy(css = ".basketItem .count .plusT")
         private WebElement incrementFirstItemCountButton;
         @FindBy(css = ".basketItem > .del")
         private WebElement removeFirstItemFromCartButton;
+        @FindBy(css = ".basketItem .count .minusT")
+        private WebElement decrementFirstItemCountButton;
         @FindBy(xpath = "/html/body/main/div[2]/div/div[2]/div[1]/div/div[3]/input")
         private WebElement firstItemCountInput;
         @FindBy(css = ".total > span")
@@ -54,8 +56,15 @@ public class KniganoshaCartPage extends AbstractPage{
                 logger.info("Incremented 1st item count.");
                 return this;
         }
+        public KniganoshaCartPage decrementFirstItemCount() {
+                new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
+                        .until(ExpectedConditions.elementToBeClickable(decrementFirstItemCountButton))
+                        .click();
+                logger.info("Decremented 1st item count.");
+                return this;
+        }
 
-        public int countItemsInCart() {
+        public int getCartItemsCount() {
                 return cartItems.size();
         }
         public long getFirstItemCount() {
