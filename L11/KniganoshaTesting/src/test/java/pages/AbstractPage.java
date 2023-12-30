@@ -30,7 +30,10 @@ public abstract class AbstractPage {
     }
 
     protected WebElement waitUntilVisibilityOf(WebElement element) {
-        return new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
+        return waitUntilVisibilityOf(element, WAIT_TIMEOUT_DURATION);
+    }
+    protected WebElement waitUntilVisibilityOf(WebElement element, long timeout) {
+        return new WebDriverWait(driver, timeout)
                 .until(ExpectedConditions.visibilityOf(element));
     }
     protected void clickWhenClickable(By locator) {

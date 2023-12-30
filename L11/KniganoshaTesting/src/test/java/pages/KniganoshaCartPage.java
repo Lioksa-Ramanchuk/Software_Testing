@@ -104,7 +104,7 @@ public class KniganoshaCartPage extends AbstractPage {
         private WebElement apartmentInput;
         @FindBy(css = "#basketMess")
         private WebElement additionalInput;
-        @FindBy(css = "#сheck") // Yes, with *cyrillic* 'с'...
+        @FindBy(css = "div#bl2.basketLayer div.itemRow button.btn.green")
         private WebElement goToLayer3Button;
 
         public KniganoshaCartPage goToLayer3() {
@@ -140,8 +140,7 @@ public class KniganoshaCartPage extends AbstractPage {
         private WebElement goToPaymentEndButton;
         public boolean proceededToLayer3() {
                 try {
-                        new WebDriverWait(driver, 3)
-                                .until(ExpectedConditions.elementToBeClickable(goToPaymentEndButton));
+                        waitUntilVisibilityOf(goToPaymentEndButton, 3);
                 } catch (Exception e) {
                         return false;
                 }

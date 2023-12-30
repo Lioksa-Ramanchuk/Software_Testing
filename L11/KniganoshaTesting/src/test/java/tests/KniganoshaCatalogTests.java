@@ -6,7 +6,7 @@ import pages.KniganoshaCatalogPage;
 import service.TestDataReader;
 
 
-public class KniganoshaCatalogTests extends CommonConditions {
+public class KniganoshaCatalogTests extends PageTestsBase {
     @Test(description = "Test #1: filter by discount")
     public void givenCatalogOpened_whenOnlyWithDiscountClicked_thenFilterCatalogByDiscount() {
         var catalogPage = new KniganoshaCatalogPage(driver)

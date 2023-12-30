@@ -1,6 +1,5 @@
 package tests;
 
-import model.DT3OrderingForm;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.KniganoshaCartPage;
@@ -9,7 +8,7 @@ import service.DT3OrderingFormCreator;
 import service.TestDataReader;
 
 
-public class KniganoshaCartTests extends CommonConditions {
+public class KniganoshaCartTests extends PageTestsBase {
     @Test(description = "Test #4: cart cost updates on item count change")
     public void givenItemAddedToCart_whenItemCountIncremented_thenCartCostChanges() {
         new KniganoshaCatalogPage(driver)
@@ -72,8 +71,8 @@ public class KniganoshaCartTests extends CommonConditions {
 
         Assert.assertEquals(firstCartItemCount, 1L, "Cart item count wasn't reset to 1.");
     }
-    @Test(description = "Test #9: checking city name length lower bound when ordering")
-    public void givenItemAddedToCart_whenOrderingAndCityNameHasLengthOfTwo_thenCityNameIsValid() {
+    @Test(description = "Test #9: checking city name length lower bound when ordering (dt3)")
+    public void givenItemAddedToCart_whenOrderingAndCityHasLengthOfTwo_thenCityIsValid() {
         new KniganoshaCatalogPage(driver)
                 .openPage()
                 .addFirstAvailableItemToCart();
@@ -82,10 +81,26 @@ public class KniganoshaCartTests extends CommonConditions {
                 .openPage()
                 .goToLayer2()
                 .setDeliveryType(deliveryType)
-                .fillOrderingFormWith(DT3OrderingFormCreator.createWithCity(TestDataReader.getTestDataLocal("t9_city_name")))
+                .fillOrderingFormWith(DT3OrderingFormCreator.createWithCity(TestDataReader.getTestDataLocal("t9_valid_city")))
                 .goToLayer3()
                 .proceededToLayer3();
 
-        Assert.assertTrue(proceededToLayer3, "Didn't proceed to cart level 3 (city name is invalid).");
+        Assert.assertTrue(proceededToLayer3, "Didn't proceed to cart level 3 (city is invalid).");
+    }
+    @Test(description = "Test #10: checking street length upper bound when ordering (dt3)")
+    public void givenItemAddedToCart_whenOrderingAndStreetHasLongLength_thenStreetIsInvalid() {
+        new KniganoshaCatalogPage(driver)
+                .openPage()
+                .addFirstAvailableItemToCart();
+        final String deliveryType = TestDataReader.getTestDataLocal("t10_delivery_type");
+        var proceededToLayer3 = new KniganoshaCartPage(driver)
+                .openPage()
+                .goToLayer2()
+                .setDeliveryType(deliveryType)
+                .fillOrderingFormWith(DT3OrderingFormCreator.createWithStreet(TestDataReader.getTestDataLocal("t10_long_street")))
+                .goToLayer3()
+                .proceededToLayer3();
+
+        Assert.assertFalse(proceededToLayer3, "Proceeded to cart level 3 (street is valid).");
     }
 }

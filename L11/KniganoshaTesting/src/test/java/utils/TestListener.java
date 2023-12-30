@@ -12,19 +12,23 @@ import org.testng.ITestResult;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
+
+import static utils.CoreUtils.getCurrentTimeAsString;
 
 public class TestListener implements ITestListener {
     private final Logger log = LogManager.getRootLogger();
 
     @Override public void onTestStart(ITestResult result) {
+        log.info("Test "+result.getMethod().getMethodName()+" started...");
     }
 
     @Override public void onTestSuccess(ITestResult result) {
+        log.info("Test "+result.getMethod().getMethodName()+" succeeded! :)");
     }
 
     @Override public void onTestFailure(ITestResult result) {
+        log.info("Test "+result.getMethod().getMethodName()+" failed! :(");
+        log.error(result.getThrowable().getMessage());
         saveScreenshot();
     }
 
@@ -32,6 +36,7 @@ public class TestListener implements ITestListener {
     }
 
     @Override public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+        log.info("Test "+result.getMethod().getMethodName()+" failed, but within success percentage! :/");
     }
 
     @Override public void onStart(ITestContext context) {
@@ -52,10 +57,5 @@ public class TestListener implements ITestListener {
         } catch (IOException e) {
             log.error("Failed to save screenshot: " + e.getLocalizedMessage());
         }
-    }
-
-    private String getCurrentTimeAsString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
-        return ZonedDateTime.now().format(formatter);
     }
 }

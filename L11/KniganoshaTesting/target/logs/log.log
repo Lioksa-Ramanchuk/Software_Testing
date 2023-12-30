@@ -1,0 +1,75 @@
+2023-12-30 05:00:15,975 INFO  [main] Test null started...
+2023-12-30 05:00:18,414 INFO  [main] Added 1st available item to cart.
+2023-12-30 05:00:19,306 INFO  [main] Proceeded to cart level 2.
+2023-12-30 05:00:19,809 INFO  [main] Set delivery type DT3.
+2023-12-30 05:00:20,468 INFO  [main] Filled DT3 ordering form.
+2023-12-30 05:00:20,858 INFO  [main] Proceeded to cart level 3.
+2023-12-30 05:00:24,041 INFO  [main] Test null succeeded! :)
+2023-12-30 05:02:09,720 INFO  [main] Test givenItemAddedToCart_whenOrderingAndStreetHasLongLength_thenStreetIsInvalid started...
+2023-12-30 05:02:11,892 INFO  [main] Added 1st available item to cart.
+2023-12-30 05:02:12,785 INFO  [main] Proceeded to cart level 2.
+2023-12-30 05:02:13,277 INFO  [main] Set delivery type DT3.
+2023-12-30 05:02:13,944 INFO  [main] Filled DT3 ordering form.
+2023-12-30 05:02:14,329 INFO  [main] Proceeded to cart level 3.
+2023-12-30 05:02:17,501 INFO  [main] Test givenItemAddedToCart_whenOrderingAndStreetHasLongLength_thenStreetIsInvalid succeeded! :)
+2023-12-30 05:03:51,534 INFO  [main] Test givenItemAddedToCart_whenOrderingAndCityNameHasLengthOfTwo_thenCityNameIsValid started...
+2023-12-30 05:03:53,908 INFO  [main] Added 1st available item to cart.
+2023-12-30 05:03:54,346 INFO  [main] Proceeded to cart level 2.
+2023-12-30 05:03:54,846 INFO  [main] Set delivery type DT3.
+2023-12-30 05:03:55,455 INFO  [main] Filled DT3 ordering form.
+2023-12-30 05:03:55,865 INFO  [main] Proceeded to cart level 3.
+2023-12-30 05:03:59,028 INFO  [main] Test givenItemAddedToCart_whenOrderingAndCityNameHasLengthOfTwo_thenCityNameIsValid failed! :(
+2023-12-30 05:03:59,028 ERROR  [main] Didn't proceed to cart level 3 (city is invalid). expected [true] but found [false]
+2023-12-30 05:18:10,626 INFO  [main] Test givenItemAddedToCart_whenOrderingAndStreetHasLongLength_thenStreetIsInvalid started...
+2023-12-30 05:18:15,157 INFO  [main] Added 1st available item to cart.
+2023-12-30 05:18:15,581 INFO  [main] Proceeded to cart level 2.
+2023-12-30 05:18:16,089 INFO  [main] Set delivery type DT3.
+2023-12-30 05:18:16,755 INFO  [main] Filled DT3 ordering form.
+2023-12-30 05:18:17,146 INFO  [main] Proceeded to cart level 3.
+2023-12-30 05:18:17,165 INFO  [main] Test givenItemAddedToCart_whenOrderingAndStreetHasLongLength_thenStreetIsInvalid succeeded! :)
+2023-12-30 05:18:28,952 INFO  [main] Test givenItemAddedToCart_whenOrderingAndCityNameHasLengthOfTwo_thenCityNameIsValid started...
+2023-12-30 05:18:31,133 INFO  [main] Added 1st available item to cart.
+2023-12-30 05:18:32,019 INFO  [main] Proceeded to cart level 2.
+2023-12-30 05:18:32,521 INFO  [main] Set delivery type DT3.
+2023-12-30 05:18:33,150 INFO  [main] Filled DT3 ordering form.
+2023-12-30 05:18:33,549 INFO  [main] Proceeded to cart level 3.
+2023-12-30 05:18:33,570 INFO  [main] Test givenItemAddedToCart_whenOrderingAndCityNameHasLengthOfTwo_thenCityNameIsValid failed! :(
+2023-12-30 05:18:33,571 ERROR  [main] Didn't proceed to cart level 3 (city is invalid). expected [true] but found [false]
+2023-12-30 05:29:06,308 INFO  [main] Test givenItemAddedToCart_whenOrderingAndCityNameHasLengthOfTwo_thenCityNameIsValid started...
+2023-12-30 05:29:08,886 INFO  [main] Added 1st available item to cart.
+2023-12-30 05:29:09,771 INFO  [main] Proceeded to cart level 2.
+2023-12-30 05:29:10,256 INFO  [main] Set delivery type DT3.
+2023-12-30 05:29:10,855 INFO  [main] Filled DT3 ordering form.
+2023-12-30 05:29:11,233 INFO  [main] Proceeded to cart level 3.
+2023-12-30 05:29:14,382 INFO  [main] Test givenItemAddedToCart_whenOrderingAndCityNameHasLengthOfTwo_thenCityNameIsValid failed! :(
+2023-12-30 05:29:14,382 ERROR  [main] Didn't proceed to cart level 3 (city is invalid). expected [true] but found [false]
+2023-12-30 05:29:53,462 INFO  [main] Test givenItemAddedToCartWithCountOfOne_whenItemCountDecremented_thenItemIsRemovedFromCart started...
+2023-12-30 05:29:55,734 INFO  [main] Test givenItemAddedToCartWithCountOfOne_whenItemCountDecremented_thenItemIsRemovedFromCart failed! :(
+2023-12-30 05:29:55,734 ERROR  [main] Failed to decode response from marionette
+Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
+System info: host: 'ALIAKSIEJ-R', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.6'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 121.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20231211174248, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 11400, moz:profile: C:\Users\user\AppData\Local..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7f4d3612-4871-4e4e-be9d-df160f32ce2e
+2023-12-30 05:29:55,734 INFO  [main] Test givenItemAddedToCartWithCountOfOne_whenItemCountDecremented_thenItemIsRemovedFromCart failed! :(
+2023-12-30 05:29:55,734 ERROR  [main] Tried to run command without establishing a connection
+Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
+System info: host: 'ALIAKSIEJ-R', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.6'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 121.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20231211174248, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 11400, moz:profile: C:\Users\user\AppData\Local..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7f4d3612-4871-4e4e-be9d-df160f32ce2e
+2023-12-30 05:30:11,258 INFO  [main] Test givenItemAddedToCart_whenOrderingAndCityHasLengthOfTwo_thenCityIsValid started...
+2023-12-30 05:30:13,535 INFO  [main] Added 1st available item to cart.
+2023-12-30 05:30:13,941 INFO  [main] Proceeded to cart level 2.
+2023-12-30 05:30:14,441 INFO  [main] Set delivery type DT3.
+2023-12-30 05:30:15,050 INFO  [main] Filled DT3 ordering form.
+2023-12-30 05:30:15,437 INFO  [main] Proceeded to cart level 3.
+2023-12-30 05:30:18,610 INFO  [main] Test givenItemAddedToCart_whenOrderingAndCityHasLengthOfTwo_thenCityIsValid failed! :(
+2023-12-30 05:30:18,610 ERROR  [main] Didn't proceed to cart level 3 (city is invalid). expected [true] but found [false]
+2023-12-30 05:30:27,369 INFO  [main] Test givenItemAddedToCart_whenOrderingAndStreetHasLongLength_thenStreetIsInvalid started...
+2023-12-30 05:30:29,796 INFO  [main] Added 1st available item to cart.
+2023-12-30 05:30:30,216 INFO  [main] Proceeded to cart level 2.
+2023-12-30 05:30:30,713 INFO  [main] Set delivery type DT3.
+2023-12-30 05:30:31,378 INFO  [main] Filled DT3 ordering form.
+2023-12-30 05:30:31,775 INFO  [main] Proceeded to cart level 3.
+2023-12-30 05:30:34,932 INFO  [main] Test givenItemAddedToCart_whenOrderingAndStreetHasLongLength_thenStreetIsInvalid succeeded! :)
