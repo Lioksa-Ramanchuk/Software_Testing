@@ -1,9 +1,12 @@
 package tests;
 
+import model.DT3OrderingForm;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.KniganoshaCartPage;
 import pages.KniganoshaCatalogPage;
+import service.DT3OrderingFormCreator;
+import service.TestDataReader;
 
 
 public class KniganoshaCartTests extends CommonConditions {
@@ -52,7 +55,7 @@ public class KniganoshaCartTests extends CommonConditions {
                 .addFirstAvailableItemToCart();
         long firstCartItemCount = new KniganoshaCartPage(driver)
                 .openPage()
-                .setFirstItemCountTo(999999999999999L)
+                .setFirstItemCountTo(TestDataReader.getTestDataLocal("t7_big_item_count"))
                 .getFirstItemCount();
 
         Assert.assertEquals(firstCartItemCount, 1L, "Cart item count wasn't reset to 1.");
@@ -64,9 +67,25 @@ public class KniganoshaCartTests extends CommonConditions {
                 .addFirstAvailableItemToCart();
         long firstCartItemCount = new KniganoshaCartPage(driver)
                 .openPage()
-                .setFirstItemCountTo("A")
+                .setFirstItemCountTo(TestDataReader.getTestDataLocal("t8_text_for_count"))
                 .getFirstItemCount();
 
         Assert.assertEquals(firstCartItemCount, 1L, "Cart item count wasn't reset to 1.");
+    }
+    @Test(description = "Test #9: checking city name length lower bound when ordering")
+    public void givenItemAddedToCart_whenOrderingAndCityNameHasLengthOfTwo_thenCityNameIsValid() {
+        new KniganoshaCatalogPage(driver)
+                .openPage()
+                .addFirstAvailableItemToCart();
+        final String deliveryType = TestDataReader.getTestDataLocal("t9_delivery_type");
+        var proceededToLayer3 = new KniganoshaCartPage(driver)
+                .openPage()
+                .goToLayer2()
+                .setDeliveryType(deliveryType)
+                .fillOrderingFormWith(DT3OrderingFormCreator.createWithCity(TestDataReader.getTestDataLocal("t9_city_name")))
+                .goToLayer3()
+                .proceededToLayer3();
+
+        Assert.assertTrue(proceededToLayer3, "Didn't proceed to cart level 3 (city name is invalid).");
     }
 }

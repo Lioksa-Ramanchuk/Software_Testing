@@ -2,8 +2,11 @@ package pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.CustomConditions;
 
@@ -24,5 +27,24 @@ public abstract class AbstractPage {
         new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
                 .until(CustomConditions.jQueryAJAXsCompleted());
         return this;
+    }
+
+    protected WebElement waitUntilVisibilityOf(WebElement element) {
+        return new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
+                .until(ExpectedConditions.visibilityOf(element));
+    }
+    protected void clickWhenClickable(By locator) {
+        new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
+                .until(ExpectedConditions.elementToBeClickable(locator))
+                .click();
+    }
+    protected void clickWhenClickable(WebElement element) {
+        new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
+                .until(ExpectedConditions.elementToBeClickable(element))
+                .click();
+    }
+    protected void sendKeysWhenVisible(WebElement element, CharSequence... charSequences) {
+        waitUntilVisibilityOf(element).clear();
+        element.sendKeys(charSequences);
     }
 }

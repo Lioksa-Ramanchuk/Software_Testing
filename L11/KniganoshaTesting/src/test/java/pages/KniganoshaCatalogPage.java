@@ -37,9 +37,7 @@ public class KniganoshaCatalogPage extends AbstractPage {
         }
 
         public KniganoshaCatalogPage addFirstAvailableItemToCart() {
-                new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
-                        .until(ExpectedConditions.elementToBeClickable(firstAddItemToCartButton));
-                firstAddItemToCartButton.click();
+                clickWhenClickable(firstAddItemToCartButton);
                 logger.info("Added 1st available item to cart.");
                 return this;
         }
@@ -60,12 +58,8 @@ public class KniganoshaCatalogPage extends AbstractPage {
                 return this;
         }
         public KniganoshaCatalogPage filterByGenre(String genre) {
-                new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
-                        .until(ExpectedConditions.elementToBeClickable(genresButton))
-                        .click();
-                new WebDriverWait(driver, WAIT_TIMEOUT_DURATION)
-                        .until(ExpectedConditions.elementToBeClickable(By.id(genre)))
-                        .click();
+                clickWhenClickable(genresButton);
+                clickWhenClickable(By.id(genre));
                 logger.info("Filtered catalog by genre.");
                 return this;
         }

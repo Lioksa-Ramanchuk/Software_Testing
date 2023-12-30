@@ -7,8 +7,6 @@ import service.TestDataReader;
 
 
 public class KniganoshaCatalogTests extends CommonConditions {
-    public static final String TEST_DATA_T3_GENRE = "test_data.t3_genre";
-
     @Test(description = "Test #1: filter by discount")
     public void givenCatalogOpened_whenOnlyWithDiscountClicked_thenFilterCatalogByDiscount() {
         var catalogPage = new KniganoshaCatalogPage(driver)
@@ -16,7 +14,6 @@ public class KniganoshaCatalogTests extends CommonConditions {
                 .filterByDiscount();
         Assert.assertEquals(catalogPage.getItemsCount(), catalogPage.getOldPricesCount(), "Not all items have old prices.");
     }
-
     @Test(description = "Test #2: filter by availability")
     public void givenCatalogOpened_whenOnlyInStockClicked_thenFilterCatalogByAvailability() {
         var catalogPage = new KniganoshaCatalogPage(driver)
@@ -24,10 +21,9 @@ public class KniganoshaCatalogTests extends CommonConditions {
                 .filterByAvailability();
         Assert.assertEquals(catalogPage.getNotInStockCount(), 0, "Not all items are available.");
     }
-
     @Test(description = "Test #3: filter by genre")
     public void givenCatalogOpened_whenGenreIsSelected_thenFilterCatalogByGenre() {
-        final String genre = "slouniki";    // TestDataReader doesn't work on Jenkins :(
+        final String genre = TestDataReader.getTestDataLocal("t3_genre");
         var catalogPage = new KniganoshaCatalogPage(driver)
                 .openPage()
                 .filterByGenre(genre);
