@@ -23,7 +23,7 @@ public class TestDataReader {
         testData.put("t7_big_item_count", "999999999999999");
         testData.put("t8_text_for_count", "A");
         testData.put("t9_delivery_type", "DT3");
-        testData.put("t9_valid_city", "Яр");
+        testData.put("t9_valid_city", "Aa");
         testData.put("t10_delivery_type", "DT3");
         testData.put("t10_long_street", "a".repeat(160));
     }
